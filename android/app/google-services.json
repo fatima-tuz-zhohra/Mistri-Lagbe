@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "577066534645",
+    "firebase_url": "https://mistri-lagbe-c1169.firebaseio.com",
+    "project_id": "mistri-lagbe-c1169",
+    "storage_bucket": "mistri-lagbe-c1169.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577066534645:android:9478c7420287c4700f67bc",
+        "android_client_info": {
+          "package_name": "com.example.flutter_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577066534645-epb3lps4ovsqrochmm7pmhep63ijd3mq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeMbQ0PkBE9IaCxoIpVJAnxwJoV5vdNRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577066534645-epb3lps4ovsqrochmm7pmhep63ijd3mq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
