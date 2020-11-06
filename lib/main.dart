@@ -6,9 +6,10 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'SignInPage.dart';
-import 'database.dart';
+//import 'database.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(new Signup());
 }
 
@@ -18,12 +19,12 @@ class Signup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      // Initialize FlutterFire:
+        // Initialize FlutterFire:
         future: _initialization,
         builder: (context, snapshot) {
           // Check for errors
           if (snapshot.hasError) {
-            return SomethingWentWrong();
+            return SomethingWentWrong(snapshot.error);
           }
 
           // Once complete, show your application
@@ -33,22 +34,25 @@ class Signup extends StatelessWidget {
 
           // Otherwise, show something whilst waiting for initialization to complete
           return Loading();
-        }
-    );
+        });
   }
 }
 
-  Widget SomethingWentWrong() {
+Widget SomethingWentWrong(Object error) {
+  return new MaterialApp(
+      home: new Scaffold(
+          appBar: new AppBar(),
+          body: Text("Something went wrong! $error}")
+      )
+  );
+}
 
-  }
-
-  Widget Loading() {
-
-  }
+Widget Loading() {
+  return new MaterialApp(home: CircularProgressIndicator());
+}
 
 Widget FullApp() {
   return new MaterialApp(
-
       title: "Sign Up",
       home: new Scaffold(
         appBar: new AppBar(
@@ -77,8 +81,8 @@ Widget FullApp() {
                                       color: Colors.green, width: 1.0),
                                 ),
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.red, width: 1.0),
+                                  borderSide:
+                                      BorderSide(color: Colors.red, width: 1.0),
                                 ),
                                 hintText: 'Enter Full Name')),
                         const SizedBox(height: 12),
@@ -90,8 +94,8 @@ Widget FullApp() {
                                       color: Colors.green, width: 1.0),
                                 ),
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.red, width: 1.0),
+                                  borderSide:
+                                      BorderSide(color: Colors.red, width: 1.0),
                                 ),
                                 hintText: 'Enter Address')),
                         const SizedBox(height: 12),
@@ -103,8 +107,8 @@ Widget FullApp() {
                                       color: Colors.green, width: 1.0),
                                 ),
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.red, width: 1.0),
+                                  borderSide:
+                                      BorderSide(color: Colors.red, width: 1.0),
                                 ),
                                 hintText: 'Enter Phone Numer')),
                         const SizedBox(height: 12),
@@ -116,8 +120,8 @@ Widget FullApp() {
                                       color: Colors.green, width: 1.0),
                                 ),
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.red, width: 1.0),
+                                  borderSide:
+                                      BorderSide(color: Colors.red, width: 1.0),
                                 ),
                                 hintText: 'Enter Email')),
                         const SizedBox(height: 12),
@@ -129,19 +133,19 @@ Widget FullApp() {
                                       color: Colors.green, width: 1.0),
                                 ),
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.red, width: 1.0),
+                                  borderSide:
+                                      BorderSide(color: Colors.red, width: 1.0),
                                 ),
                                 hintText: 'Enter Password')),
                         const SizedBox(height: 12),
                         RaisedButton(
                           onPressed: () {
-                            var user = User();
+                            /* var user = User();
                             user.name = "Elma";
                             user.email = "test@test.com";
                             user.address = "Address";
                             user.phone = "017xxxxxx";
-                            saveUser(user);
+                            saveUser(user);*/
                           },
                           color: Colors.blueGrey,
                           textColor: Colors.white,
@@ -163,8 +167,7 @@ Widget FullApp() {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => SignIn()),
+                              MaterialPageRoute(builder: (context) => SignIn()),
                             );
                           },
                           color: Colors.blueGrey,
@@ -196,8 +199,7 @@ Widget FullApp() {
                                   ),
                                   new SizedBox(width: 8),
                                   new Text("Facebook")
-                                ])
-                            ),
+                                ])),
                             SizedBox(width: 30),
                             RaisedButton(
                               onPressed: () {
@@ -230,4 +232,3 @@ _launchURL(String url) async {
     throw 'Could not launch $url';
   }
 }
-
