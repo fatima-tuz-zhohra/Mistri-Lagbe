@@ -5,6 +5,6 @@ final databaseReference = FirebaseDatabase.instance.reference();
 
 void saveUser(User user) {
   var users = databaseReference.child('users/');
-  users.push().set(user);
+  users.push().set(user.toJson());
 }
 

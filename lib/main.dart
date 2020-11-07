@@ -6,7 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'SignInPage.dart';
-//import 'database.dart';
+import 'database.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -140,12 +140,7 @@ Widget FullApp() {
                         const SizedBox(height: 12),
                         RaisedButton(
                           onPressed: () {
-                            /* var user = User();
-                            user.name = "Elma";
-                            user.email = "test@test.com";
-                            user.address = "Address";
-                            user.phone = "017xxxxxx";
-                            saveUser(user);*/
+
                           },
                           color: Colors.blueGrey,
                           textColor: Colors.white,
