@@ -1,12 +1,12 @@
-class User {
-  User(this.name, this.phone, this.email, this.address);
+class AppUser {
+  AppUser(this.name, this.phone, this.email, this.address);
 
   String name;
   String phone;
   String email;
   String address;
 
-  User.fromJson(Map<String, dynamic> json)
+  AppUser.fromJson(Map<String, dynamic> json)
       : name = json['name'],
         phone = json['phone'],
         address = json['address'],
